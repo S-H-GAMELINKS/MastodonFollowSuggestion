@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 # Using dotenv
 gem 'dotenv-rails'
 
+# Using Devise
+gem 'devise'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
