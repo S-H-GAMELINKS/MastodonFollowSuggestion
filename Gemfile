@@ -37,6 +37,11 @@ gem 'dotenv-rails'
 # Using Devise
 gem 'devise'
 
+# Using Mastodon API
+gem 'mastodon-api', require: 'mastodon'
+gem 'omniauth-mastodon'
+gem 'omniauth'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
