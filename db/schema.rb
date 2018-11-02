@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_02_044431) do
+ActiveRecord::Schema.define(version: 2018_11_02_044655) do
 
   create_table "mastodon_clients", force: :cascade do |t|
     t.string "domain"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2018_11_02_044431) do
     t.string "uid"
     t.string "provider"
     t.string "domain"
+    t.string "token"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
