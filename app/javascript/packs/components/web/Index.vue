@@ -1,6 +1,17 @@
 <template>
 <div class="container">
     <div v-if="user_login">
+        <div v-for="(user, key, index) in recoUsers" :key=index>
+            <p>アカウントID：{{user.acct}}</p>
+            <img :src="user.avatar" size="50x50">
+            <p>アカウント名：{{user.display_name}}</p>
+            <p>フォロー数：{{user.following_count}}</p>
+            <p>フォロワー数：{{user.followers_count}}</p>
+            <p>Toot数：{{user.statues_count}}</p>
+            <p v-if="user.locked">鍵垢</p>
+            <p v-if="user.bot">Bot</p>
+            <a :href="user.url">フォロー</a>
+        </div>
         <button v-on:click="recFollow">Follow reco</button>
     </div>
     <div v-else>
@@ -37,6 +48,8 @@ export default {
                 for(var i = 0; i < response.data.length; i++) {
                     this.recoUsers.push(response.data[i]);
                 }
+
+                console.log(this.recoUsers);
             }, (error) => {
                 console.log(error);
             })
