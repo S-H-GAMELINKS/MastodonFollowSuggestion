@@ -40,6 +40,9 @@ gem 'mastodon-api', require: 'mastodon'
 gem 'omniauth-mastodon'
 gem 'omniauth'
 
+# Using foreman
+gem 'foreman'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
