@@ -2,20 +2,20 @@
 <div class="container">
     <div v-if="user_login">
         <div v-for="(user, key, index) in recoUsers" :key=index>
-            <p>アカウントID：{{user.acct}}</p>
-            <img :src="user.avatar" size="50x50">
-            <p>アカウント名：{{user.display_name}}</p>
-            <p>フォロー数：{{user.following_count}}</p>
-            <p>フォロワー数：{{user.followers_count}}</p>
-            <p>Toot数：{{user.statues_count}}</p>
+            <img :src="user.avatar" :size="'50x50'">
+            <p>アカウント名：{{user.display_name}} アカウントID：{{user.acct}}</p>
+            <p>フォロー数：{{user.following_count}} フォロワー数：{{user.followers_count}}</p>
+            <p>Toot数：{{user.statuses_count}}</p>
             <p v-if="user.locked">鍵垢</p>
             <p v-if="user.bot">Bot</p>
-            <a :href="user.url">フォロー</a>
+            <a :href="user.url">{{user.display_name}} さんをフォローする</a>
+            <br><br><br>
         </div>
         <button v-on:click="recFollow">おすすめユーザーを見てみる</button>
     </div>
     <div v-else>
-        <h1>Index</h1>
+        <h1><p>Mastodon Follow Suggestion へようこそ！</p></h1>
+        <p>このサービスではあなたへオススメのユーザーを紹介します！</p>
     </div>
 </div>
 </template>
@@ -45,6 +45,7 @@ export default {
 
             axios.get(url, {headers: {Authorization : token}}).then((response) => {
 
+                console.log(response.data);
                 for(var i = 0; i < response.data.length; i++) {
                     this.recoUsers.push(response.data[i]);
                 }
