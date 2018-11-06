@@ -41,13 +41,11 @@ export default {
   methods: {
     userLogin: function() {
       axios.get('/api/sessions/login').then((response) => {
-        console.log(response);
         if(response.data === null) {
           this.user_login = false;
         } else {
           this.user_login = true;
         }
-        console.log(this.user_login);
       }, (error) => {
         console.log(error);
       })

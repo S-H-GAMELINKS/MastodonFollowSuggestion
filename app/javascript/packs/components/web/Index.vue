@@ -45,19 +45,16 @@ export default {
 
             axios.get(url, {headers: {Authorization : token}}).then((response) => {
 
-                console.log(response.data);
                 for(var i = 0; i < response.data.length; i++) {
                     this.recoUsers.push(response.data[i]);
                 }
 
-                console.log(this.recoUsers);
             }, (error) => {
                 console.log(error);
             })
         },
         userLogin: function() {
             axios.get('/api/sessions/login').then((response) => {
-                console.log(response);
                 if(response.data === null) {
                     this.user_login = false;
                 } else {
@@ -67,7 +64,6 @@ export default {
                     this.userDomain = response.data.domain;
                     this.userToken = response.data.token;
                 }
-                console.log(this.userDomain);
             }, (error) => {
                 console.log(error);
             })
