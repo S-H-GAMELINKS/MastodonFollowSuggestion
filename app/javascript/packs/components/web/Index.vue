@@ -12,7 +12,7 @@
             <p v-if="user.bot">Bot</p>
             <a :href="user.url">フォロー</a>
         </div>
-        <button v-on:click="recFollow">Follow reco</button>
+        <button v-on:click="recFollow">おすすめユーザーを見てみる</button>
     </div>
     <div v-else>
         <h1>Index</h1>
